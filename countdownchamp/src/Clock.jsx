@@ -10,6 +10,7 @@ class Clock extends Component {
       minutes: 0,
       seconds: 0
     }
+    console.log('this.props', this.props);
   }
 
   render() {
