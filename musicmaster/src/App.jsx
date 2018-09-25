@@ -8,15 +8,17 @@ class App extends Component {
     super(props);
     this.state = {
      query: '',
-     artist: null
+     artist: null,
+     tracks: []
     }
   }
 
 search() {
   console.log('this.state', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?';
-    const FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
-    var accessToken = 'BQBWuKTAGJO7yel7ul9dmDyTMstyYA1rlQ9aRO3FVfqpH9VYTtiXIqmlNL0sx4Z0uEv_7Y3Q7w3WmeHzK_eKsGY4CZfA_QXCUvR63Pc_UJ-EaduQa1Lupy989o3Xe9GHNh8ZbRXsqbWXQJJxkANYTTowevm9Tg&refresh_token=AQCbjDQDm46De98H8CRgPYAv4aQaq36zykmyumcm-KlsVh3C9pyprphPpMrngY6dvdTp6GEVZ3JNzona5EVYOoThIRXpXubOvooFUrTZ0FEtrwLXcLAGAFOtppmkZss90PcRLw';
+    let FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
+    const ALBUM_URL = 'https://api.spotify.com/v1/artists';
+    var accessToken = 'BQBLU1r6XWy0azcN-RouMJiTHTULn4UjFr2JzUA2POw8BG2IIieGGr1adJ2ewkeWK4FL2utrwYGLL8SzZhCawLwJODEQIE4_ehTpGpelULlwbqLoi42s2z9j2vb_2MaBHaqrUiiKIrCfOEUp_YIsgQ-aBFivPg&refresh_token=AQDHdAKTAA9Nmy8dE3Uj4CusZwpO_M1BDKqPEwSUuHgLjp_dZvRuX8rkbTMdz2AsX8xaAFvkka7yQRvsZ94cwZ4yhm6RciP91lUUQ1vKllVYSkD_ikXwX4o7lALkiPsBqT1aDg';
 
     var myOptions = {
       method: 'GET',
@@ -27,12 +29,21 @@ search() {
       cache: 'default'
     };
 
-    fetch(FETCH_URL, myOptions )
+    fetch(FETCH_URL, myOptions)
       .then(response => response.json())
       .then(json => {
         const artist = json.artists.items[0];
         this.setState({artist});
-      })
+
+        FETCH_URL = `${ALBUM_URL}/${artist.id}/top-tracks?country=ID&`
+        fetch(FETCH_URL, myOptions)
+        .then(response => response.json())
+        .then(json => {
+          console.log('artist\'s top tracks:', json);
+          const {tracks} = json;
+          this.setState({tracks});
+        })
+      });
 }
 
   render() {
@@ -57,12 +68,19 @@ search() {
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
-        <Profile
-          artist={this.state.artist}
-        />
-        <div className="Gallery">
-          Gallery
-        </div>
+        {
+          this.state.artist !== null
+          ?
+          <div>
+            <Profile
+              artist={this.state.artist}
+            />
+            <div className="Gallery">
+              Gallery
+            </div>
+          </div>
+          : <div></div>
+          }
       </div>
     )
   }
