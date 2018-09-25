@@ -9,5 +9,33 @@ body {
 }
 
 .App-title {
-  font-size: 25px;
+  font-size: 26px;
+}
+
+/*Profile*/
+
+.Profile {
+  display: flex;
+  justify-content: center;
+}
+
+.Profile-info {
+  margin-left: 10px;
+  text-align: left;
+}
+
+.Profile-img {
+  width: 150px;
+  height: 150px;
+  border: 3px solid #fff;
+  border-radius: 75px;
+  object-fit: cover;
+}
+
+.Profile-name {
+  font-size: 26px;
+}
+
+.Profile-followers, .Profile-genres {
+  font-size: 18px;
 }

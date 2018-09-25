@@ -16,7 +16,7 @@ search() {
   console.log('this.state', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     const FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
-    var accessToken = 'BQAtz6GnesrC4FdNeydaE-lzfLjeA_lb7GShQILbrC5_r1OdfcVOIJjMebWBJh1hqyvsqbOSDx663hdosq3aAOCb9qr_qCzyg12CAcYVGu7Y9u8c-brAlTDLPLJTDTja7ig1WbpNMQs1i1jXndYXrxMXZrf-lQ&refresh_token=AQDfLE77Lw9R0u1J4Qur8-lddcVNb1LIGYP75c670ulwwfiHelckaR48GIeLnTv5-e3rb4CdavT3pQROXjGiUChygjiihjiEjN9Hi9pNIdC66kJjtJsBYPB6C4NSTEm1p0xkmg';
+    var accessToken = 'BQBWuKTAGJO7yel7ul9dmDyTMstyYA1rlQ9aRO3FVfqpH9VYTtiXIqmlNL0sx4Z0uEv_7Y3Q7w3WmeHzK_eKsGY4CZfA_QXCUvR63Pc_UJ-EaduQa1Lupy989o3Xe9GHNh8ZbRXsqbWXQJJxkANYTTowevm9Tg&refresh_token=AQCbjDQDm46De98H8CRgPYAv4aQaq36zykmyumcm-KlsVh3C9pyprphPpMrngY6dvdTp6GEVZ3JNzona5EVYOoThIRXpXubOvooFUrTZ0FEtrwLXcLAGAFOtppmkZss90PcRLw';
 
     var myOptions = {
       method: 'GET',
