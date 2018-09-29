@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 import Profile from './Profile';
+import Gallery from './Gallery';
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ search() {
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     let FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
     const ALBUM_URL = 'https://api.spotify.com/v1/artists';
-    var accessToken = 'BQBLU1r6XWy0azcN-RouMJiTHTULn4UjFr2JzUA2POw8BG2IIieGGr1adJ2ewkeWK4FL2utrwYGLL8SzZhCawLwJODEQIE4_ehTpGpelULlwbqLoi42s2z9j2vb_2MaBHaqrUiiKIrCfOEUp_YIsgQ-aBFivPg&refresh_token=AQDHdAKTAA9Nmy8dE3Uj4CusZwpO_M1BDKqPEwSUuHgLjp_dZvRuX8rkbTMdz2AsX8xaAFvkka7yQRvsZ94cwZ4yhm6RciP91lUUQ1vKllVYSkD_ikXwX4o7lALkiPsBqT1aDg';
+    var accessToken = 'BQCM-8FVxuIB-Lx0D5D5S_lIVeybFyF-bRLUO7sUjWKVFk50jIuexA_r9kepcF9CHJPYdzm6XscbUlTDo3AaoMLiRVFGIVmyGXuVZTuVmeDeUdjx01LzGW9ewALJVGRQ5_qDtluF87viNIrIRRBfnQdX8pcP4Q&refresh_token=AQB973uM8qAbBqzcxlplHsQ0QD5DsfMZcECZ82tH3GJjIT5v5DE1HyWx2pKO-Y1diZYNxlWkKUPN0aI2qn9jUyCsoLbdam_FGdBwelqpSBJ6cw3rE-oeiYQUTQHRYVv77BS-LA';
 
     var myOptions = {
       method: 'GET',
@@ -75,9 +76,9 @@ search() {
             <Profile
               artist={this.state.artist}
             />
-            <div className="Gallery">
-              Gallery
-            </div>
+            <Gallery
+              tracks={this.state.tracks}
+            />
           </div>
           : <div></div>
           }
