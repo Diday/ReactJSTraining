@@ -65,6 +65,42 @@ body {
   position: absolute;
 }
 
+.Track-play {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+}
+
+.Track-play-inner {
+  position: absolute;
+  text-align: center;
+  font-size: 25px;
+  background-color: black;
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  color: white;
+  padding-top: 13px;
+  margin-left: 80px;
+  margin-top: 80px;
+  opacity: 0;
+}
+
+.Track-play-inner:hover {
+  opacity: 0.8;
+  animation-name: fade-in;
+  animation-duration: 0.3s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+
 .Track-text {
   background-color: black;
   color: white;

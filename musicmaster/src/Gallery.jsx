@@ -53,6 +53,15 @@ class Gallery extends Component {
               onClick= {() => this.playAudio(track.preview_url)}
             >
               <img src= {trackImg} className= "Track-img" alt= "Track"/>
+              <div className= "Track-play">
+                <div className= "Track-play-inner">
+                  {
+                    this.state.playingUrl === track.preview_url
+                    ? <span>| |</span>
+                    : <span>&#9654;</span>
+                  }
+                </div>
+              </div>
               <p className= "Track-text">{track.name}</p>
             </div>
           )
